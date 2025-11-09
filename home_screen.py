@@ -15,9 +15,6 @@ class HomeScreen(Screen):
     
     def __init__(self, **kw):
         super().__init__(**kw)
-    def on_button_press(self,value):
-        if value == "yes":
-            print("wow u pressed the button!")
 
     def on_enter(self, *args):
         layout = self.ids.main_box
