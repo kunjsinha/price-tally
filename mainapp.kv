@@ -1,0 +1,172 @@
+#:kivy 2.3.0
+
+<HomeScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 0.962, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        Button:
+            pos_hint:{"right":0.98,"top":0.98}
+            font_name: "assets/Rhigen.otf"
+            font_size: 40
+            on_release: app.root.current = "totals"
+            size_hint_y:0.1
+            size_hint_x:0.2
+            background_normal: '' 
+            background_down: ''  
+            color:0,0,0,1 
+            background_color:1, 1, 0.962, 1
+            markup: True
+            text: "[b]Totals[/b]"
+    
+    BoxLayout:
+        id: main_box
+        orientation: "vertical"
+        padding: 20
+        spacing: 0
+        size_hint: 1, 0.5   # height is 50% of parent
+        pos_hint: {'x':0, 'y':0.3}  # start at 30% of parent's height
+        
+        Label:
+            font_size: 50
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {'center_x': 0.5, 'top': 0.9}
+            color: 0,0,0,1
+            text: "Who's Paying Today?"
+            font_name: "assets/Showboat.ttf"
+
+        Label:
+            id: no_one
+            font_size: 40
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {'center_x': 0.5, 'top': 0.8}
+            color: 0,0,0,1
+            text: "There's nobody here... Add a few people?"
+            font_name: "Times New Roman"
+        
+        Button:
+            color:0,0,0,1
+            background_normal: '' 
+            background_down: ''   
+            size_hint_y:0.5
+            size_hint_x:0.5
+            height: self.texture_size[1]
+            pos_hint: {'center_x': 0.5, 'top': 0.6}
+            background_color:1, 1, 0.962, 1
+            markup: True
+            text: "[b]Add People[/b]"
+            font_name:"assets/MeltingTown.otf"
+            font_size:70
+            id: add_people
+            
+            on_release: root.show_name_popup()
+
+        AnchorLayout:
+            anchor_x: "center"
+            anchor_y: "center" 
+            padding: [0, -150, 0, 0]
+
+            BoxLayout:
+                id: users_list
+                orientation: "horizontal"
+                spacing: 10
+                size_hint: None, None
+                width: self.minimum_width
+                height: 300
+            
+        TextInput:
+            pos_hint: {'center_x': 0.5, "top":0.8}
+            id: price_input
+            hint_text: "Add Price"
+            multiline: False
+            font_size: 40
+            font_name: "assets/wheaton capitals.otf"
+            size_hint: None,None
+            width: 500
+            height: 100
+            halign: "center"
+            background_color: 1, 1, 0.962, 1  # beige background
+            foreground_color: 0, 0, 0, 1      # black text
+            cursor_color: 0, 0, 0, 1
+            padding: [10, 10]
+        
+        
+        Button:
+            color:0,0,0,1
+            background_normal: '' 
+            background_down: ''   
+            size_hint_y:0.5
+            size_hint_x:0.5
+            height: self.texture_size[1]
+            pos_hint: {'center_x': 0.5, 'top': 0.6}
+            background_color:1, 1, 0.962, 1
+            markup: True
+            text: "[b]Save Price[/b]"
+            font_name:"assets/MeltingTown.otf"
+            font_size:70
+            id: save_price
+            padding: [0,100,0,0]
+            
+            on_release: root.save_price()
+
+<TotalsScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 0.962, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        Button:
+            pos_hint:{"right":0.98,"top":0.98}
+            font_name: "assets/Rhigen.otf"
+            font_size: 40
+            on_release: app.root.current = "home"
+            size_hint_y:0.1
+            size_hint_x:0.2
+            background_normal: '' 
+            background_down: ''  
+            color:0,0,0,1 
+            background_color:1, 1, 0.962, 1
+            markup: True
+            text: "[b]Go back[/b]"
+
+        Button:
+            pos_hint: {"left":0.98, "top":0.98}
+            font_name: "assets/Rhigen.otf"
+            font_size: 40
+            size_hint_y: 0.1
+            size_hint_x: 0.2
+            background_normal: '' 
+            background_down: ''  
+            color: 0,0,0,1 
+            background_color: 1, 1, 0.962, 1
+            markup: True
+            text: "[b]Download logs[/b]"
+            on_release: root.download()
+
+
+    BoxLayout:
+        id: totals_box
+        size_hint: 1, 0.5   # height is 50% of parent
+        pos_hint: {'x':0, 'y':0.3}
+        orientation: "vertical"
+        padding: 20
+        spacing: 0
+        BoxLayout:
+            id: second_totals_box
+            size_hint: 1, 0.5   # height is 50% of parent
+            pos_hint: {'x':0, 'y':0.3}
+            orientation: "horizontal"
+            padding: 20
+            spacing: 0
+
+
+            
+
+                
