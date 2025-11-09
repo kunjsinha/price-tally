@@ -3,7 +3,6 @@ import os
 import platform
 
 def download_file(file_name):
-    print("cool")
     system = platform.system()
     if system == "Android":
         downloads_folder = "/storage/emulated/0/Download"
@@ -20,6 +19,7 @@ def download_file(file_name):
     # Check if source file exists first
     if os.path.exists(file_name):
         shutil.copy(file_name, destination)
-        print(f"Copied {file_name} to {destination}")
+        # print(f"Copied {file_name} to {destination}")
     else:
-        print(f"File {file_name} not found in current directory")
+        pass
+        # print(f"File {file_name} not found in current directory")
