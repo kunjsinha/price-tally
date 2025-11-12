@@ -14,3 +14,7 @@
 - 🎨 **Custom Design:** Uses custom fonts and a clean beige-cream theme.  
 
 ---
+
+This can be converted to an apk file using buildozer by creating a proper spec file and be ran on android phones for easy access.
+https://github.com/kivy/buildozer
+
